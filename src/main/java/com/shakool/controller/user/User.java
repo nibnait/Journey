@@ -15,7 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class User {
     @RequestMapping(value = "login" , method = RequestMethod.POST)
     public @ResponseBody String login(@RequestParam("phone") String phone, @RequestParam("username") String username, @RequestParam("passwd") String passwd) {
+        if (phone != null) {
 
+        } else if (username != null) {
+
+        } else {
+            return "{}";
+        }
         return null;
     }
 @RequestMapping(value = "register" , method = RequestMethod.POST)
