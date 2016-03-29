@@ -3,6 +3,7 @@ package com.shakool.controller.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "user")
 public class User {
     @RequestMapping(value = "login" , method = RequestMethod.POST)
-    public @ResponseBody String login() {
+    public @ResponseBody String login(@RequestParam("phone") String phone, @RequestParam("username") String username, @RequestParam("passwd") String passwd) {
 
         return null;
     }
