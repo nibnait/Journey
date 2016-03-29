@@ -1,4 +1,4 @@
-package com.shakool.other;
+package com.shakool.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ import java.util.Random;
 
 /**
  * Created by geekgao on 16-3-28.
- * 验证码
+ * 验证码控制器
  */
 @Controller
 public class Captcha {
@@ -76,7 +76,6 @@ public class Captcha {
         }
         // 将四位数字的验证码保存到Session中
         session.setAttribute("captcha", captcha.toString());
-        System.out.println(captcha.toString());
         // 禁止图像缓存
         response.setHeader("Cache-Control", "no-cache");
         response.setDateHeader("Expires", 0);
