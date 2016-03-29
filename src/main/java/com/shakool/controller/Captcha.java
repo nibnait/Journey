@@ -19,7 +19,7 @@ import java.util.Random;
  */
 @Controller
 public class Captcha {
-    @RequestMapping(value = "getcaptcha" , method = RequestMethod.GET)
+    @RequestMapping(value = "/getcaptcha" , method = RequestMethod.GET)
     public void getCaptcha(HttpSession session, HttpServletResponse response) throws IOException {
         int width = 120;
         int height = 30;
