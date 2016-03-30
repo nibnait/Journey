@@ -4,7 +4,7 @@ package com.shakool.pojo;
  * Created by geekgao on 16-3-29.
  */
 public class User {
-    private String userId;;
+    private String userId;
     private String wechatId;
     private String weiboId;
     private String qqId;

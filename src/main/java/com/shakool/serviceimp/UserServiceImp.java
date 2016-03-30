@@ -36,4 +36,22 @@ public class UserServiceImp implements UserService {
     public User getDecalredInfosWithUserName(String username) {
         return userDao.getDecalredInfosWithUserName(username);
     }
+
+    public boolean phoneExist(String phone) {
+        int count = userDao.phoneCount(phone);
+        if (count == 1) {
+            return true;
+        } else if (count == 0) {
+            return false;
+        } else if (count > 1) {
+            throw new IllegalStateException("手机号重复!手机号是：" + phone);
+        } else {
+            throw new IllegalStateException("查询手机号存在个数出错.手机号是：" + phone);
+        }
+
+    }
+
+    public void insertNewUser(User newUser) {
+        userDao.insertNewUser(newUser);
+    }
 }

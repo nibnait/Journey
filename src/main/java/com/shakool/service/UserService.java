@@ -13,4 +13,8 @@ public interface UserService {
     User getDecalredInfosWithPhone(String phone);
 
     User getDecalredInfosWithUserName(String username);
+
+    boolean phoneExist(String phone);
+
+    void insertNewUser(User newUser);
 }

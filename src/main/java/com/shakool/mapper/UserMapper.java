@@ -1,6 +1,7 @@
 package com.shakool.mapper;
 
 import com.shakool.pojo.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 
 /**
@@ -18,4 +19,15 @@ public interface UserMapper {
 
     @Select("select * from user where username = #{0} and password = #{1}")
     User getUserWithUserNamePasswd(String username, String passwd);
+
+    /**
+     *
+     * @param phone 手机号码
+     * @return 数据库中拥有此手机号码的用户个数
+     */
+    @Select("select count(userId) from user where phone = #{0}")
+    int phoneCount(String phone);
+
+    @Insert("insert into user(phone,password,nickname) values(#{phone},#{password},#{nickname})")
+    void insertNewUser(User newUser);
 }
