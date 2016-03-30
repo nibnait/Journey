@@ -28,6 +28,6 @@ public interface UserMapper {
     @Select("select count(userId) from user where phone = #{0}")
     int phoneCount(String phone);
 
-    @Insert("insert into user(phone,password,nickname) values(#{phone},#{password},#{nickname})")
-    void insertNewUser(User newUser);
+    @Insert("insert into user(phone,password,nickname,registtime) values(#{phone},#{password},#{nickname},#{registtime})")
+    void insertNewUserWithPhone(User newUser);
 }

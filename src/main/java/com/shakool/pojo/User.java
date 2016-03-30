@@ -19,6 +19,15 @@ public class User {
     private String phone;
     private String email;
     private String image;
+    private String registtime;
+
+    public String getRegisttime() {
+        return registtime;
+    }
+
+    public void setRegisttime(String registtime) {
+        this.registtime = registtime;
+    }
 
     public String getUserId() {
         return userId;

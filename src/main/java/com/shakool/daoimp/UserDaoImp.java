@@ -105,12 +105,12 @@ public class UserDaoImp implements UserDao {
         return count;
     }
 
-    public void insertNewUser(User newUser) {
+    public void insertNewUserWithPhone(User newUser) {
         SqlSession sqlSession = null;
         try {
             sqlSession = MyBatisUtils.getSession();
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-            mapper.insertNewUser(newUser);
+            mapper.insertNewUserWithPhone(newUser);
             sqlSession.commit();
         } catch (IOException e) {
             e.printStackTrace();

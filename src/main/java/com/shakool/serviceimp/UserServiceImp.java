@@ -51,7 +51,7 @@ public class UserServiceImp implements UserService {
 
     }
 
-    public void insertNewUser(User newUser) {
-        userDao.insertNewUser(newUser);
+    public void insertNewUserWithPhone(User newUser) {
+        userDao.insertNewUserWithPhone(newUser);
     }
 }

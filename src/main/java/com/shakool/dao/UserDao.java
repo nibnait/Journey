@@ -21,5 +21,9 @@ public interface UserDao {
      */
     int phoneCount(String phone);
 
-    void insertNewUser(User newUser);
+    /**
+     *
+     * @param newUser 只会将新用户的phone,password,nickname,registtime存进数据库（注册时只有这几个数据）
+     */
+    void insertNewUserWithPhone(User newUser);
 }
