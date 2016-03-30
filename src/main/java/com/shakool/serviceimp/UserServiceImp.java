@@ -16,10 +16,16 @@ public class UserServiceImp implements UserService {
     UserDao userDao;
 
     public boolean verifyWithPhone(String phone, String passwd) {
+        if (userDao.getUserWithPhonePasswd(phone,passwd) != null) {
+            return true;
+        }
         return false;
     }
 
-    public boolean verifyWithUserName(String phone, String passwd) {
+    public boolean verifyWithUserName(String username, String passwd) {
+        if (userDao.getUserWithUserNamePasswd(username,passwd) != null) {
+            return true;
+        }
         return false;
     }
 

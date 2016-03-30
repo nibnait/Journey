@@ -50,4 +50,40 @@ public class UserDaoImp implements UserDao {
 
         return user;
     }
+
+    public User getUserWithPhonePasswd(String phone, String passwd) {
+        SqlSession sqlSession = null;
+        User user = null;
+        try {
+            sqlSession = MyBatisUtils.getSession();
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            user = mapper.getUserWithPhonePasswd(phone,passwd);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+
+        return user;
+    }
+
+    public User getUserWithUserNamePasswd(String username, String passwd) {
+        SqlSession sqlSession = null;
+        User user = null;
+        try {
+            sqlSession = MyBatisUtils.getSession();
+            UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+            user = mapper.getUserWithUserNamePasswd(username,passwd);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+
+        return user;
+    }
 }

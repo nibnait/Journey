@@ -5,6 +5,7 @@ import com.shakool.service.UserService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -47,16 +48,20 @@ public class UserController {
                 user = userService.getDecalredInfosWithUserName(username);
             }
 
-            
+            JSONObject resultJson = new JSONObject();
+            resultJson.put("errcode","0");
+            resultJson.put("msg","正确");
+            JSONObject userJson = new JSONObject(user);
+            resultJson.put("user",userJson);
+
+            return resultJson.toString();
         } else {
             return "{\"errcode\":\"1\",\"msg\":\"用户名或密码错误\"}";
         }
-
-        return null;
     }
 @RequestMapping(value = "/register" , method = RequestMethod.POST)
     public @ResponseBody String register() {
-
+        
         return null;
     }
 }
