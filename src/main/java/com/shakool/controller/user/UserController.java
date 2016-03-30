@@ -1,5 +1,6 @@
 package com.shakool.controller.user;
 
+import com.shakool.pojo.User;
 import com.shakool.service.UserService;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -24,22 +25,27 @@ public class UserController {
 
     @RequestMapping(value = "/login" , method = RequestMethod.POST)
     public @ResponseBody String login(@RequestParam(required = false,name = "phone") String phone, @RequestParam(required = false,name = "username") String username, @RequestParam(required = false,name = "passwd") String passwd) {
-        boolean flag;
+        System.out.println(phone);
+        System.out.println(username);
+        System.out.println(passwd);
+        boolean flag = true;
         if (passwd == null || passwd.equals("")) {
             flag = false;
-        } else {
-            flag = true;
         }
 
         boolean isTrueUser = false;
+        User user = null;
         if (flag) {
             if (phone != null) {
                 isTrueUser = userService.verifyWithPhone(phone,passwd);
+                 user = userService.getDecalredInfosWithPhone(phone);
             } else if (username != null) {
                 isTrueUser = userService.verifyWithUserName(username,passwd);
+                user = userService.getDecalredInfosWithUserName(username);
             }
         }
 
+        System.out.println(user);
         if (isTrueUser) {
 
         } else {
