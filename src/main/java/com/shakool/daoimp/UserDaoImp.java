@@ -39,7 +39,7 @@ public class UserDaoImp implements UserDao {
         try {
             sqlSession = MyBatisUtils.getSession();
             UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-            user = mapper.getDecalredInfosWithPhone(username);
+            user = mapper.getDecalredInfosWithUserName(username);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

@@ -25,29 +25,29 @@ public class UserController {
 
     @RequestMapping(value = "/login" , method = RequestMethod.POST)
     public @ResponseBody String login(@RequestParam(required = false,name = "phone") String phone, @RequestParam(required = false,name = "username") String username, @RequestParam(required = false,name = "passwd") String passwd) {
-        System.out.println(phone);
-        System.out.println(username);
-        System.out.println(passwd);
         boolean flag = true;
         if (passwd == null || passwd.equals("")) {
             flag = false;
         }
 
         boolean isTrueUser = false;
-        User user = null;
         if (flag) {
             if (phone != null) {
                 isTrueUser = userService.verifyWithPhone(phone,passwd);
-                 user = userService.getDecalredInfosWithPhone(phone);
             } else if (username != null) {
                 isTrueUser = userService.verifyWithUserName(username,passwd);
-                user = userService.getDecalredInfosWithUserName(username);
             }
         }
 
-        System.out.println(user);
+        User user = null;
         if (isTrueUser) {
+            if (phone != null) {
+                user = userService.getDecalredInfosWithPhone(phone);
+            } else if (username != null) {
+                user = userService.getDecalredInfosWithUserName(username);
+            }
 
+            
         } else {
             return "{\"errcode\":\"1\",\"msg\":\"用户名或密码错误\"}";
         }
