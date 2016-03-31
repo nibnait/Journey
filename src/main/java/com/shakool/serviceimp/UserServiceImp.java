@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImp implements UserService {
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
 
     public boolean verifyWithPhone(String phone, String passwd) {
         if (userDao.getUserWithPhonePasswd(phone,passwd) != null) {
@@ -51,7 +51,7 @@ public class UserServiceImp implements UserService {
 
     }
 
-    public void insertNewUserWithPhone(User newUser) {
-        userDao.insertNewUserWithPhone(newUser);
+    public void insert(User newUser) {
+        userDao.insert(newUser);
     }
 }

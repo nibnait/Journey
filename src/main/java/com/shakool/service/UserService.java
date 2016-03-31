@@ -16,5 +16,5 @@ public interface UserService {
 
     boolean phoneExist(String phone);
 
-    void insertNewUserWithPhone(User newUser);
+    void insert(User newUser);
 }

@@ -22,7 +22,7 @@ import java.util.Date;
 @RequestMapping(value = "user")
 public class UserController {
     @Resource
-    UserService userService;
+    private UserService userService;
 
     @RequestMapping(value = "/login" , method = RequestMethod.POST)
     public @ResponseBody String login(@RequestParam(required = false,name = "phone") String phone, @RequestParam(required = false,name = "username") String username, @RequestParam(required = false,name = "passwd") String passwd) {
@@ -97,7 +97,8 @@ public class UserController {
         newUser.setNickname(nickname);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         newUser.setRegisttime(dateFormat.format(new Date()));
-        userService.insertNewUserWithPhone(newUser);
+        userService.insert(newUser);
+        session.invalidate();
 
         return "{\"errcode\":\"0\",\"msg\":\"正常\"}";
     }
