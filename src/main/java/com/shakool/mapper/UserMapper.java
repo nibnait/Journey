@@ -28,6 +28,6 @@ public interface UserMapper {
     @Select("select count(userId) from user where phone = #{0}")
     int phoneCount(String phone);
 
-    @Insert("insert into user(wechatId,weiboId,qqId,username,nickname,password,authority,score,level,sex,birthday,phone,email,image,registtime) values(#{userId}, #{wechatId}, #{weiboId}, #{qqId}, #{username}, #{nickname}, #{password}, #{authority}, #{score}, #{level}, #{sex}, #{birthday}, #{phone}, #{email}, #{image}, #{registtime})")
+    @Insert("insert into user(wechatId,weiboId,qqId,username,nickname,password,authority,score,level,sex,birthday,phone,email,image,registtime) values(#{wechatId}, #{weiboId}, #{qqId}, #{username}, #{nickname}, #{password}, #{authority}, #{score}, #{level}, #{sex}, #{birthday}, #{phone}, #{email}, #{image}, #{registtime})")
     void insert(User newUser);
 }
