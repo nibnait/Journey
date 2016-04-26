@@ -19,7 +19,7 @@ import java.util.Date;
  * 用户相关控制器
  */
 @Controller
-@RequestMapping(value = "user")
+@RequestMapping("/user")
 public class UserController {
     @Resource
     private UserService userService;

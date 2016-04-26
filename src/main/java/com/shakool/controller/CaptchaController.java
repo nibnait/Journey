@@ -18,7 +18,7 @@ import java.util.Random;
  * 验证码控制器
  */
 @Controller
-public class Captcha {
+public class CaptchaController {
     @RequestMapping(value = "/getcaptcha" , method = RequestMethod.GET)
     public void getCaptcha(HttpSession session, HttpServletResponse response) throws IOException {
         int width = 120;
