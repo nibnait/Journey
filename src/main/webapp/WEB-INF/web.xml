@@ -14,4 +14,9 @@
         <servlet-name>shakool</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
+    <!--session持续5分钟失效-->
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
 </web-app>
