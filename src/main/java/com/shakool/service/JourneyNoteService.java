@@ -15,6 +15,11 @@ public interface JourneyNoteService {
     //分页查询游记
     List<JourneyNote> getJourneyNoteListWithPage(JourneyNoteQuery journeyNoteQuery);
 
+    /**get TotalRows*/
+    public int getJourneyNoteListCount(JourneyNoteQuery journeyNoteQuery);
+
+
+
     //更新游记
     void updateJourneyNoteByKey(JourneyNote journeyNote);
 

@@ -20,7 +20,7 @@ public class JourneyNoteDaoImp implements JourneyNoteDao{
     SqlSession sqlSession = null;
     try{
         sqlSession = MyBatisUtils.getSession();
-        sqlSession.insert("com.shakool.com.shakool.mapper.mapper.JourneyNoteMapper.addJourneyNote",journeyNote);
+        sqlSession.insert("com.shakool.dao.JourneyNoteDao.addJourneyNote",journeyNote);
         sqlSession.commit();
     }catch (IOException e){
         e.printStackTrace();
@@ -63,6 +63,24 @@ public class JourneyNoteDaoImp implements JourneyNoteDao{
         }
 
         return journeyNotes;
+    }
+
+    public int getJourneyNoteListCount(JourneyNoteQuery journeyNoteQuery) {
+
+        SqlSession sqlSession = null;
+        Integer totalRows = 0;
+        try{
+            sqlSession = MyBatisUtils.getSession();
+            totalRows = sqlSession.selectOne("com.shakool.dao.JourneyNoteDao.getJourneyNoteListCount",journeyNoteQuery);
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            if (sqlSession != null) {
+                sqlSession.close();
+            }
+        }
+
+        return totalRows;
     }
 
     public void updateJourneyNoteByKey(JourneyNote journeyNote){

@@ -15,6 +15,11 @@ public interface JourneyNoteDao {
     /**分页查询游记*/
     public List<JourneyNote> getJourneyNoteListWithPage(JourneyNoteQuery journeyNoteQuery);
 
+
+    /**get TotalRows*/
+    public int getJourneyNoteListCount(JourneyNoteQuery journeyNoteQuery);
+
+
     /**更新游记*/
     public void updateJourneyNoteByKey(JourneyNote journeyNote);
 

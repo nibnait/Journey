@@ -113,11 +113,13 @@ public class JourneyNoteController {
         journeyNoteQuery.orderbyUpdateTime(false);  //按更新时间 降序
         List<JourneyNote> journeyNotes = journeyNoteService.getJourneyNoteListWithPage(journeyNoteQuery);
         JSONArray array = new JSONArray(journeyNotes);
+        int totalRows = journeyNoteService.getJourneyNoteListCount(journeyNoteQuery);
 
         jo.put("encode","0");
         jo.put("msg","成功");
         jo.put("pageNo",journeyNoteQuery.getPageNo());
         jo.put("pageSize",journeyNoteQuery.getPageSize());
+        jo.put("totalRows",totalRows);
         jo.put("userId",userId);
         jo.put("journeyNotes",array);
         ResponseUtils.renderJson(response,jo.toString());

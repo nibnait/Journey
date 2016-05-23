@@ -37,6 +37,10 @@ public class JourneyNoteServiceImp implements JourneyNoteService {
         return journeyNotes;
     }
 
+    public int getJourneyNoteListCount(JourneyNoteQuery journeyNoteQuery) {
+        return journeyNoteDao.getJourneyNoteListCount(journeyNoteQuery);
+    }
+
     public void updateJourneyNoteByKey(JourneyNote journeyNote) {
         journeyNoteDao.updateJourneyNoteByKey(journeyNote);
     }

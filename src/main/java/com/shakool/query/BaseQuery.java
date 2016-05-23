@@ -21,6 +21,7 @@ public class BaseQuery implements Serializable {
     protected String fields;
 
 
+
     public int getPageNo() {
         return pageNo;
     }

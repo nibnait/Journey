@@ -278,6 +278,7 @@ post数据：  (带'*'为必选数据)　　
 			"userId":"×××"			//作者Id  
 			"pageNo":1			//页号（默认第1页）
 			"pageSize":10			//每页大小（默认10）
+			"totalRows":234     //游记总篇数
 			"journeyNotes":[{"content": "asdf",
 "title": "asdf",
 "updateTime": "Sun May 22 21:14:11 CST 2016",
